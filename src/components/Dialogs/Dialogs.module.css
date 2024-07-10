@@ -1,6 +1,7 @@
 .dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+    /*display: grid;*/
+    /*grid-template-columns: 2fr 10fr;*/
+    display: flex;
 }
 
 .dialogsItems {
@@ -8,11 +9,22 @@
 }
 
 .dialogsItems .dialog {
-
+    width: 150px;
 }
 
 .dialogsItems .active {
     color: #FFFFFF;
+}
+
+.dialog img[alt="ava"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.dialog .name {
+    margin-bottom: 100px;
 }
 
 .messages {
@@ -21,3 +33,4 @@
 
 .messages .message {
 }
+
