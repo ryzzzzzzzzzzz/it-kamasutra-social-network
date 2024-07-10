@@ -1,3 +1,7 @@
+let renderEntireTree = () => {
+    console.log("state fell")
+}
+
 let state = {
     profilePage: {
         posts: [
@@ -5,7 +9,8 @@ let state = {
             {id: 2, message: 'It\'s my first post', likesCount: 42},
             {id: 3, message: 'Blabla', likesCount: 0},
             {id: 4, message: 'hi', likesCount: 1}
-        ]
+        ],
+        newPostText: ''
     },
     dialogsPage: {
         dialogs: [
@@ -25,14 +30,25 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+export const addPost = () => {
     let newPost = {
-        id: 6,
-        message: postMessage,
+        id: 5,
+        message: state.profilePage.newPostText,
         likesCount: 0
     };
 
-    state.profilePage.posts.push(postMessage)
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    renderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    renderEntireTree(state);
+    };
+
+export const subscribe = (observer) => {
+    renderEntireTree = observer;
 }
 
 export default state;
